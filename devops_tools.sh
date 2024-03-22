@@ -131,3 +131,57 @@ install_vagrant(){
     vagrant --version
 }
 
+# main menu
+if command_exists apt-get; then 
+    sudo apt-get update -y
+    while true; do
+        echo "Select Software from the following list:"
+        echo "1. Docker"
+        echo "2. Jenkins"
+        echo "3. terraform"
+        echo "4. AWS CLI"
+        echo "5. trivy"
+        echo "6. K8's "
+        echo "7. Ansible"
+        echo "8. Vagrant"
+        echo "9. Exit"
+        read -p "Enter your choice: " choice
+        
+        case $choice in
+        1)
+            install_docker
+            ;;
+        2)
+            install_Jenkins
+            ;;
+        3)
+            install_terraform
+            ;;
+        4)
+            install_awscli
+            ;;
+        5)
+            install_trivy
+            ;;
+        6)
+            install_kubernetes
+            ;;
+        7)
+            install_ansible
+            ;;
+        8)
+            install_vagrant
+            ;;
+        9)
+            echo "Exiting..."
+            exit 0
+            ;;
+        *)
+            echo "Invalid choice. Please choose again."
+            ;;
+        esac
+    done
+
+else
+    echo "Error: apt-get is not available. Cannot update APT packages or Install any software."
+fi
