@@ -133,6 +133,22 @@ Explanation:
 - The script displays a menu with options to add a user, delete a user, list users, or exit the script.
 - Based on the user's choice, the corresponding function is called.
 
+13. `database_backup.sh`:
+Summary: This script provides a menu-driven interface to perform backups of MySQL, PostgreSQL, and MongoDB databases. It allows the user to choose which database they want to back up and prompts for the necessary connection details, such as hostname, username, password, and database name. The script defines three main functions.
+
+Explanation:
+- backup_mysql():
+  Checks if the mysqldump command is available and installs the mysql-client package if it's not.
+  Prompts the user for MySQL database connection details (host, username, password, and database name).
+  Performs a backup of the specified MySQL database using the mysqldump command, creating a SQL dump file in the specified backup directory.
+- backup_postgresql():
+  Prompts the user for PostgreSQL database connection details (host, username, password, and database name).
+  Performs a backup of the specified PostgreSQL database using the pg_dump command, creating a SQL dump file in the specified backup directory.
+- backup_mongodb():
+  Prompts the user for MongoDB database connection details (host, port, and database name).
+  Performs a backup of the specified MongoDB database using the mongodump command, creating a BSON dump in the specified backup directory.
+
+
 These scripts demonstrate the use of shell scripting for system monitoring and user account management tasks. The `systesm_monitor.sh` script can be scheduled to run periodically using a cron job or a system monitoring tool to alert administrators about high CPU usage. The `user_add.sh` script provides a convenient way to manage user accounts from the command line.
 
 These scripts cover a range of tasks, including file encryption/decryption, network connectivity checks, password generation, remote backup, and system information gathering. They demonstrate the use of shell scripting for various system administration and security-related tasks.
